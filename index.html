@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DraftSense - win-probability companion for League of Legends champ select</title>
+<meta name="description" content="DraftSense shows the calibrated win chance of every candidate pick during champ select, personalized to the lobby's ranks and your champion mastery. Read-only, advisory, Riot ToS-safe.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">Draft<b>Sense</b></div>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#api">Riot API use</a>
+      <a href="#responsible">Responsible use</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:none">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Champ-select companion for League of Legends</span>
+        <h1>Pick to your strengths, not a tier list.</h1>
+        <p class="sub">DraftSense ranks every option for your role by matchup, team fit, and your champion mastery, refreshed each patch.</p>
+        <div class="cta">
+          <a class="btn primary" href="#how">How it works</a>
+          <a class="btn ghost" href="privacy.html">Privacy policy</a>
+        </div>
+      </div>
+      <div class="example" aria-label="Example recommendation">
+        <div class="cap">Example output, you are BOTTOM (blue side)</div>
+        <div class="rec">
+          <div class="row"><div class="pick"><div class="name">Kai'Sa <span class="tag">best pick</span></div><div class="why">synergy with your Lulu, scales with the comp</div></div><div class="pick wp">52.6%</div></div>
+          <div class="row"><div class="pick"><div class="name">Kalista</div><div class="why">strong into the enemy bot lane</div></div><div class="pick wp">51.9%</div></div>
+          <div class="row"><div class="pick"><div class="name">Xayah</div><div class="why">safe blind, your 240k mastery</div></div><div class="pick wp">51.1%</div></div>
+        </div>
+        <div class="note">Several top picks are often statistical ties. DraftSense says so instead of faking a ranking.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what">
+    <div class="wrap">
+      <h2>What it does</h2>
+      <p class="intro">During champ select, DraftSense ranks the candidates for your role by how well they fit this specific draft and how well you play them.</p>
+      <div class="does">
+        <ul>
+          <li><b>Plays to your mastery</b><span>Ranks champions you actually perform on, from each player's champion-mastery totals, not just global averages.</span></li>
+          <li><b>Champion-specific matchups</b><span>Real counter and synergy edges measured from a ranked-game corpus, not a hand-maintained tier list.</span></li>
+          <li><b>Fresh every patch</b><span>An automated pipeline retrains on current-patch ranked games, so the advice tracks the live meta.</span></li>
+          <li><b>Honest win chance</b><span>A calibrated win percentage backs each pick, and flags when the top options are statistical ties.</span></li>
+        </ul>
+        <figure class="example" style="margin:0">
+          <div class="cap">Overlay in champ select</div>
+          <img src="overlay.png" width="488" height="880"
+               alt="DraftSense overlay during champ select: ally and enemy rows with champion portraits, a damage-profile comparison, a counterpick note, the recommended pick Kai'Sa with its calibrated win chance and a matchup, synergy, base, and comp-fit value breakdown, plus ranked alternates."
+               style="display:block; width:100%; height:auto; border-radius:8px; margin-top:4px" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="intro">A thin, read-only overlay on your machine talks to a hosted backend that does the modelling. One production key serves every user; no key ships to your machine.</p>
+      <ol class="steps">
+        <li><b>Read.</b> <span>The overlay reads champ-select state from the League client's local API (LCU), read-only. No automation, no input simulation.</span></li>
+        <li><b>Look up.</b> <span>The backend resolves the lobby's players and fetches their ranked tier and champion mastery server-side.</span></li>
+        <li><b>Score.</b> <span>The model evaluates each candidate for your open slot, conditioned on the board, ranks, and mastery.</span></li>
+        <li><b>Show.</b> <span>Top picks with a win-probability delta and a short reason. You make every decision.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="different">
+    <div class="wrap">
+      <h2>How it is different</h2>
+      <p class="intro">Most tools show population averages. DraftSense reads your specific draft and lobby.</p>
+      <div class="versus">
+        <div class="col them">
+          <h3>Typical stats sites</h3>
+          <ul>
+            <li>Population win rates and counter tables</li>
+            <li>The same advice for everyone</li>
+            <li>A black-box "strong pick"</li>
+            <li>Tables updated by hand</li>
+          </ul>
+        </div>
+        <div class="col us">
+          <h3>DraftSense</h3>
+          <ul>
+            <li>P(win) for this partial draft, from a sequence model</li>
+            <li>Personalized to your mastery and the lobby's ranks</li>
+            <li>Counterfactual drivers: mastery, rank, matchup, bans</li>
+            <li>Patch-trained model with an automated refresh pipeline</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="api">
+    <div class="wrap">
+      <h2>How DraftSense uses the Riot API</h2>
+      <p class="intro">Transparent by design. Official Web APIs only, rate-limited, no scraping, no write endpoints.</p>
+      <table class="api">
+        <thead><tr><th>API</th><th>Why</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td>Account-V1</td><td class="why">Resolve lobby players (Riot ID and puuid) for rank and mastery lookups</td><td><span class="badge live">live</span></td></tr>
+          <tr><td>League-V4</td><td class="why">Per-player ranked tier and LP, a model input</td><td><span class="badge live">live</span></td></tr>
+          <tr><td>Champion-Mastery-V4</td><td class="why">Per-player champion mastery, personalization</td><td><span class="badge live">live</span></td></tr>
+          <tr><td>Summoner-V4</td><td class="why">puuid and summoner id where an endpoint requires it</td><td><span class="badge live">live</span></td></tr>
+          <tr><td>Match-V5</td><td class="why">Ranked match outcomes to train the model</td><td><span class="badge">offline</span></td></tr>
+          <tr><td>LCU (local client)</td><td class="why">Read champ-select state on your machine, read-only</td><td><span class="badge">local</span></td></tr>
+        </tbody>
+      </table>
+      <p class="api-foot">No spectator, tournament, or write endpoints. We respect every returned rate-limit header and self-throttle below it.</p>
+    </div>
+  </section>
+
+  <section id="responsible">
+    <div class="wrap">
+      <h2>Responsible and ToS-safe by design</h2>
+      <div class="cards">
+        <div class="card"><h3>Read-only client</h3><p>The LCU is used only to read the draft. No auto-pick, auto-ban, auto-accept, auto-dodge, or simulated input. You decide everything.</p></div>
+        <div class="card"><h3>No unfair advantage</h3><p>Output is informational and available before you lock, the analogue of reading a stats site. It does not act in-game.</p></div>
+        <div class="card"><h3>Honest about limits</h3><p>Draft is one noisy factor in a win. We show calibrated estimates and flag statistical ties. We do not promise wins or LP.</p></div>
+        <div class="card"><h3>Minimal data</h3><p>Short-lived puuid-keyed caches for a single draft. No per-player profiles, no selling Riot data. See the <a href="privacy.html">privacy policy</a>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>Questions, data requests, or Riot review: <a href="mailto:contact@draftsense.app">contact@draftsense.app</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="legal">
+      DraftSense isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games
+      or anyone officially involved in producing or managing Riot Games properties. Riot Games and all
+      associated properties are trademarks or registered trademarks of Riot Games, Inc.
+    </p>
+    <div class="footlinks">
+      <a href="privacy.html">Privacy policy</a>
+      <a href="mailto:contact@draftsense.app">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DraftSense - Privacy Policy</title>
+<meta name="description" content="How DraftSense handles Riot Games data: what we request, what we store, retention, and your rights.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand"><a href="index.html" style="color:inherit">Draft<b>Sense</b></a></div>
+    <nav class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#api">Riot API use</a>
+      <a href="index.html#responsible">Responsible use</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap" style="max-width:740px">
+    <a class="back" href="index.html">Back to DraftSense</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 24 June 2026</p>
+
+    <p>DraftSense is a champ-select companion for League of Legends. It reads your live draft
+      and shows win-probability guidance for your role. This policy explains what data it
+      handles and why. We collect the minimum needed to give advice during a single draft.</p>
+
+    <h2>What we request</h2>
+    <ul>
+      <li>For players in your own champ-select lobby: their Riot puuid, ranked tier and LP, and champion-mastery totals.</li>
+      <li>For training the model: ranked match results, pulled in aggregate via the Riot Match-V5 API.</li>
+    </ul>
+
+    <h2>What we store</h2>
+    <ul>
+      <li>Short-lived, server-side caches of (puuid to rank) and (puuid to mastery), keyed by puuid, with a short time-to-live of about ten minutes. These exist only to stay within Riot rate limits during one draft.</li>
+      <li>Training data (match results) is stored in aggregate for fitting the model. We do not build or sell per-player profiles.</li>
+    </ul>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not sell or share Riot data with third parties.</li>
+      <li>We do not build advertising profiles from Riot data.</li>
+      <li>We do not expose one player's data to another beyond what is already visible in their shared lobby.</li>
+      <li>We do not automate the game client. The League client integration is read-only.</li>
+    </ul>
+
+    <h2>Retention and deletion</h2>
+    <ul>
+      <li>Live rank and mastery caches expire automatically (about ten minutes).</li>
+      <li>You can request deletion of any data tied to your account at any time by emailing us.</li>
+    </ul>
+
+    <h2>Identifiers and PII</h2>
+    <p>Riot puuids are pseudonymous identifiers. We treat them as sensitive and never display
+      another player's identity beyond what the in-client lobby already shows.</p>
+
+    <h2>Compliance</h2>
+    <p>DraftSense follows Riot Games' Developer Policies and the data-handling requirements for
+      approved third-party products. All Riot data is accessed through the official Web APIs and
+      the local client API. We do not scrape.</p>
+
+    <h2>Contact</h2>
+    <p>Privacy questions or data requests:
+      <a href="mailto:contact@draftsense.app">contact@draftsense.app</a></p>
+
+    <p class="legal" style="margin-top:34px">
+      DraftSense isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games
+      or anyone officially involved in producing or managing Riot Games properties. Riot Games and all
+      associated properties are trademarks or registered trademarks of Riot Games, Inc.
+    </p>
+  </div>
+</main>
+
+</body>
+</html>
