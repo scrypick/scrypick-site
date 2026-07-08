@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The strongest champion pairings in the current meta — Scrypick</title>
-<meta name="description" content="Which League of Legends duos actually lift each other, which drag each other down, and the hardest lane counters — measured over 111,034 ranked games with a recency-weighted, shrinkage-corrected estimator.">
+<title>The strongest champion pairings in the current meta, Scrypick</title>
+<meta name="description" content="Which League of Legends duos actually lift each other, which drag each other down, and the hardest lane counters, measured over 111,034 ranked games with a recency-weighted, shrinkage-corrected estimator.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230e1420%27/%3E%3Ccircle cx=%2716%27 cy=%2715%27 r=%278.5%27 fill=%27none%27 stroke=%27%23c8a24b%27 stroke-width=%272.2%27/%3E%3Ccircle cx=%2716%27 cy=%2715%27 r=%273.2%27 fill=%27%23c8a24b%27/%3E%3Cpath d=%27M9 26h14%27 stroke=%27%23c8a24b%27 stroke-width=%272.2%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
       <h1>The strongest champion pairings in the current meta</h1>
       <p class="updated">Updated 7 July 2026 · corpus: 111,034 ranked games, 224 champions</p>
 
-      <p class="lede">Tier lists rank champions alone. Drafts are about pairs — the duo that snowballs together, the lane that loses before minute three. Here are the pairings our estimator rates highest and lowest right now, and, just as important, how to read the numbers without fooling yourself.</p>
+      <p class="lede">Tier lists rank champions alone. Drafts are about pairs, the duo that snowballs together, the lane that loses before minute three. Here are the pairings our estimator rates highest and lowest right now, and, just as important, how to read the numbers without fooling yourself.</p>
 
       <h2>How to read these tables</h2>
       <p>These are not champion win rates. A champion's raw win rate mostly re-reads the meta and leaks information about the games it's measured on. What we want is the <em>interaction</em>: how much two champions change each other's result <strong>beyond</strong> what their individual strength already predicts.</p>
@@ -38,14 +39,14 @@
         <li><strong>Isolated interaction.</strong> We remove each champion's own strength first, so a strong solo carry can't fake "synergy." What's left is the pairing effect only.</li>
         <li><strong>Recency-weighted.</strong> Recent patches count more (two-patch half-life), so the tables track the live meta instead of a stale patch-pooled average.</li>
         <li><strong>Shrunk toward zero.</strong> Thin, lucky pairs collapse toward "no effect." Only pairings with real, repeated signal survive.</li>
-        <li><strong>Lane-restricted counters.</strong> A "counter" here is the <em>same-role</em> matchup — champion vs. their lane opponent — not noise from four unrelated enemies.</li>
+        <li><strong>Lane-restricted counters.</strong> A "counter" here is the <em>same-role</em> matchup, champion vs. their lane opponent, not noise from four unrelated enemies.</li>
       </ul>
       <div class="callout">
         <p>The <strong>≈ win-swing</strong> column translates the log-odds interaction into an approximate win-percentage change, for intuition only. Treat it as a rough sign-and-size read, not a precise number. Everything shown is filtered to pairs with a large effective sample (≥120 recency-weighted games), so these are the well-measured pairings, not the long tail.</p>
       </div>
 
       <h2>Duos that lift each other</h2>
-      <p>The pairings with the largest positive interaction — the two champions do measurably better together than their individual strength predicts. Bot-lane duos dominate the top simply because they play together every game, so their signal is the cleanest.</p>
+      <p>The pairings with the largest positive interaction, the two champions do measurably better together than their individual strength predicts. Bot-lane duos dominate the top simply because they play together every game, so their signal is the cleanest.</p>
       <div class="tbl-wrap">
         <table class="data">
           <caption>Top same-team synergy interactions, current corpus</caption>
@@ -66,7 +67,7 @@
           </tbody>
         </table>
       </div>
-      <p class="tbl-note">The Caitlyn pairings (Jarvan, Xerath, Bard) share a theme: her traps and long range convert other champions' setup — a knock-up, a stun, a pick — into free damage. That's a real interaction, not just two strong champions stacked.</p>
+      <p class="tbl-note">The Caitlyn pairings (Jarvan, Xerath, Bard) share a theme: her traps and long range convert other champions' setup, a knock-up, a stun, a pick, into free damage. That's a real interaction, not just two strong champions stacked.</p>
 
       <h2>Duos the meta over-rates</h2>
       <p>The other end: pairs that measurably <em>underperform</em> together, usually because they want the same thing and neither provides what the other lacks. These are the drafts to reconsider even when both champions are individually fine.</p>
@@ -84,7 +85,7 @@
           </tbody>
         </table>
       </div>
-      <p class="tbl-note">Note how often Smolder appears on this list. A hyper-scaling carry wants a lane that protects him; pair him with a diver or another selfish scaler and the early game caves in before his scaling matters — the interaction is negative even though Smolder is a fine champion on his own.</p>
+      <p class="tbl-note">Note how often Smolder appears on this list. A hyper-scaling carry wants a lane that protects him; pair him with a diver or another selfish scaler and the early game caves in before his scaling matters, the interaction is negative even though Smolder is a fine champion on his own.</p>
 
       <h2>The hardest lane counters</h2>
       <p>Same idea, applied to the direct lane matchup: how much a champion beats the specific opponent standing across from them, with each champion's own strength removed. Read it as "prioritize or dodge this lane," not "this champion is better."</p>
@@ -108,17 +109,17 @@
           </tbody>
         </table>
       </div>
-      <p class="tbl-note">Draven punishing Ezreal is the pattern to internalize: an all-in early lane beating a champion who wants to scale safely. The matchup is antisymmetric — if A beats B by this much, B loses to A by the same amount — so every row here is also a lane to avoid from the other side.</p>
+      <p class="tbl-note">Draven punishing Ezreal is the pattern to internalize: an all-in early lane beating a champion who wants to scale safely. The matchup is antisymmetric, if A beats B by this much, B loses to A by the same amount, so every row here is also a lane to avoid from the other side.</p>
 
       <h2>The honest caveats</h2>
       <ul>
         <li><strong>Descriptive, not causal.</strong> These are what happened across a large sample, not a promise. A pairing that fits the current meta can flip when a patch reshapes the map or the item build.</li>
         <li><strong>Draft is one factor.</strong> A synergy worth a few percent is real and worth taking, but a thirty-minute game still decides most of the outcome. We'd rather show you a true small edge than a fake large one.</li>
-        <li><strong>Sample floors matter.</strong> Everything above clears a high effective-sample bar. Below that bar, apparent "god pairs" are mostly noise — which is exactly why the estimator shrinks them away.</li>
+        <li><strong>Sample floors matter.</strong> Everything above clears a high effective-sample bar. Below that bar, apparent "god pairs" are mostly noise, which is exactly why the estimator shrinks them away.</li>
       </ul>
 
       <div class="callout">
-        <p>Want this applied to your own lobby instead of a global table? The <a href="../scout.html">Champion Scout</a> reads the current pro meta by role, and the <a href="../index.html">Scrypick overlay</a> ranks your live champ-select options by matchup, synergy, and your own mastery — with a calibrated win chance on each.</p>
+        <p>Want this applied to your own lobby instead of a global table? The <a href="../scout.html">Champion Scout</a> reads the current pro meta by role, and the <a href="../index.html">Scrypick overlay</a> ranks your live champ-select options by matchup, synergy, and your own mastery, with a calibrated win chance on each.</p>
       </div>
 
       <p><a class="back" href="index.html">← Back to the blog</a></p>
