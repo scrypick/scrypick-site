@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The builds the ladder has solved, and the ones it hasn't | Scrypick</title>
+<meta name="description" content="Across 115,000 ranked games, some champions have one forced core item and others are a genuine coin-flip. A map of build consensus by champion and role, measured honestly, with a note on why popularity is not the same as strength.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230e1420%27/%3E%3Ccircle cx=%2716%27 cy=%2715%27 r=%278.5%27 fill=%27none%27 stroke=%27%23c8a24b%27 stroke-width=%272.2%27/%3E%3Ccircle cx=%2716%27 cy=%2715%27 r=%273.2%27 fill=%27%23c8a24b%27/%3E%3Cpath d=%27M9 26h14%27 stroke=%27%23c8a24b%27 stroke-width=%272.2%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none">Scry<b>pick</b></a>
+    <nav class="nav-links">
+      <a href="../scout.html">Champion Scout</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#measure">How we measure</a>
+      <a href="../index.html#api">Riot API use</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="doc post">
+    <div class="wrap">
+      <span class="eyebrow">Data: itemization</span>
+      <h1>The builds the ladder has solved, and the ones it hasn't</h1>
+      <p class="updated">Updated 13 July 2026. Corpus: 115,000+ ranked games, patch 16.13, verified clean.</p>
+
+      <p class="lede">Some champions have exactly one first item, bought in game after game with almost no disagreement. Others are a genuine argument, where the most popular core shows up in barely a third of builds. That split, between the champions the playerbase has solved and the ones it is still fighting over, is its own kind of tier list, and it is measurable.</p>
+
+      <div class="callout">
+        <p><strong>Read this as agreement, not as truth.</strong> Every number below is a <em>build share</em>: how often players of a champion finish a given item, out of everyone who played that champion in the role. A 96% share means the ladder has converged on one answer. It does <strong>not</strong> prove that answer is optimal, only that it is the consensus. Consensus can be right, and it can also be inertia. Telling those two apart needs a different measurement, which is exactly what we are building next (see the closing note).</p>
+      </div>
+
+      <h2>How to read these tables</h2>
+      <p>These are completed-item shares from end-of-game inventories, restricted to champion-and-role cells with a real sample. A few honest notes on what that does and doesn't capture:</p>
+      <ul>
+        <li><strong>Final items, not buy order.</strong> Riot's match record stores what you finished, not the sequence you finished it in. So this is "what the core build converges to," not "what to rush first." Purchase-order analysis is a separate, harder problem we're working on.</li>
+        <li><strong>Share is popularity.</strong> The percentage is how often the item appears, nothing more. We deliberately do <em>not</em> rank these by win rate: a raw item win rate is dominated by <em>when</em> the item is bought (defensive items look weak because you buy them while behind), so it is a misleading measure of an item's strength. Popularity we can report honestly; strength needs the debiased method below.</li>
+        <li><strong>Sample floors.</strong> Every row shown clears a few hundred games on the champion-and-role, with the game count printed so you can weigh it.</li>
+      </ul>
+
+      <h2>Solved: one core, no argument</h2>
+      <p>These champions have a first item so forced it is nearly a stat on the champion itself. When 19 out of 20 players buy the same thing, the build question has been answered and the interesting decisions are elsewhere.</p>
+      <div class="tbl-wrap">
+        <table class="data">
+          <caption>Highest first-item consensus, by champion and role</caption>
+          <thead><tr><th>Champion</th><th>Role</th><th>Core item</th><th class="num">Build share</th><th class="num">Games</th></tr></thead>
+          <tbody>
+            <tr><td class="pair">Irelia</td><td>Mid</td><td>Blade of the Ruined King</td><td class="num pos">97%</td><td class="dim">479</td></tr>
+            <tr><td class="pair">Camille</td><td>Top</td><td>Trinity Force</td><td class="num pos">96%</td><td class="dim">602</td></tr>
+            <tr><td class="pair">Karthus</td><td>Bot</td><td>Blackfire Torch</td><td class="num pos">96%</td><td class="dim">556</td></tr>
+            <tr><td class="pair">Urgot</td><td>Top</td><td>Black Cleaver</td><td class="num pos">95%</td><td class="dim">920</td></tr>
+            <tr><td class="pair">Lillia</td><td>Jungle</td><td>Liandry's Torment</td><td class="num pos">95%</td><td class="dim">660</td></tr>
+            <tr><td class="pair">Samira</td><td>Bot</td><td>The Collector</td><td class="num pos">95%</td><td class="dim">632</td></tr>
+            <tr><td class="pair">Neeko</td><td>Support</td><td>Hextech Rocketbelt</td><td class="num pos">94%</td><td class="dim">594</td></tr>
+            <tr><td class="pair">Gangplank</td><td>Top</td><td>Essence Reaver</td><td class="num pos">94%</td><td class="dim">862</td></tr>
+            <tr><td class="pair">Smolder</td><td>Bot</td><td>Essence Reaver</td><td class="num pos">93%</td><td class="dim">2,995</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Irelia is the cleanest case: Blade of the Ruined King in 96&ndash;97% of games whether she is played top or mid, a build that travels with the champion regardless of lane. When a core is this fixed, the games are won and lost on <em>when</em> the item comes online and what goes around it, not on the choice itself.</p>
+
+      <h2>Contested: the most popular pick is still a minority</h2>
+      <p>The other end. For these champions the single most-built core shows up in fewer than half of games, which means the plurality build is losing the argument as often as it wins it. A live debate, a champion with real build flexibility, or a meta mid-shift: the low share is the signal that the answer is not settled.</p>
+      <div class="tbl-wrap">
+        <table class="data">
+          <caption>Lowest first-item consensus (the item shown is still the plurality)</caption>
+          <thead><tr><th>Champion</th><th>Role</th><th>Most-built core</th><th class="num">Build share</th><th class="num">Games</th></tr></thead>
+          <tbody>
+            <tr><td class="pair">Quinn</td><td>Top</td><td>Stormrazor</td><td class="num neg">37%</td><td class="dim">326</td></tr>
+            <tr><td class="pair">Shaco</td><td>Jungle</td><td>Voltaic Cyclosword</td><td class="num neg">38%</td><td class="dim">978</td></tr>
+            <tr><td class="pair">Galio</td><td>Mid</td><td>Hextech Rocketbelt</td><td class="num neg">39%</td><td class="dim">895</td></tr>
+            <tr><td class="pair">Orianna</td><td>Mid</td><td>Luden's Echo</td><td class="num neg">39%</td><td class="dim">790</td></tr>
+            <tr><td class="pair">Vayne</td><td>Bot</td><td>Guinsoo's Rageblade</td><td class="num neg">41%</td><td class="dim">1,066</td></tr>
+            <tr><td class="pair">Morgana</td><td>Support</td><td>Zhonya's Hourglass</td><td class="num neg">41%</td><td class="dim">589</td></tr>
+            <tr><td class="pair">Malphite</td><td>Top</td><td>Sunfire Aegis</td><td class="num neg">42%</td><td class="dim">1,232</td></tr>
+            <tr><td class="pair">Katarina</td><td>Mid</td><td>Shadowflame</td><td class="num neg">44%</td><td class="dim">1,176</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Malphite is the instructive one: at 1,200+ games, the 42% on Sunfire Aegis is not thin data, it is a real disagreement, the tank-versus-burst-AP identity crisis showing up in the item slot. When you play a champion from this table, the "standard build" is a much weaker default than it feels, and paying attention to the enemy team actually matters.</p>
+
+      <h2>Even the boots are an argument</h2>
+      <p>Boots are the itemization decision players think about least and copy most. For some champions they are as contested as the core, and the majority choice is a coin-flip against the field.</p>
+      <div class="tbl-wrap">
+        <table class="data">
+          <caption>Champions whose most-common boot is still a minority pick</caption>
+          <thead><tr><th>Champion</th><th>Role</th><th>Most-built boot</th><th class="num">Share</th><th class="num">Games</th></tr></thead>
+          <tbody>
+            <tr><td class="pair">Master Yi</td><td>Jungle</td><td>Plated Steelcaps</td><td class="num neg">20%</td><td class="dim">1,312</td></tr>
+            <tr><td class="pair">Talon</td><td>Jungle</td><td>Boots of Swiftness</td><td class="num neg">26%</td><td class="dim">1,613</td></tr>
+            <tr><td class="pair">Ryze</td><td>Mid</td><td>Chainlaced Crushers</td><td class="num neg">27%</td><td class="dim">767</td></tr>
+            <tr><td class="pair">Jayce</td><td>Top</td><td>Plated Steelcaps</td><td class="num neg">29%</td><td class="dim">1,364</td></tr>
+            <tr><td class="pair">Naafiri</td><td>Jungle</td><td>Ionian Boots of Lucidity</td><td class="num neg">30%</td><td class="dim">1,257</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Master Yi's boots split five ways with no option above 20%: defensive Steelcaps against AD, Swiftness to stick to targets, Lucidity for uptime, all viable, all situational. This is the kind of decision players autopilot and shouldn't.</p>
+
+      <h2>The honest caveats</h2>
+      <ul>
+        <li><strong>Consensus is descriptive, not prescriptive.</strong> A solved build tells you the ladder agrees, not that the ladder is right. Whole champions have been stuck on a suboptimal "standard build" for entire patches because everyone copies everyone.</li>
+        <li><strong>Shares move with the meta.</strong> A contested build today can solve overnight when a patch tunes one item, and a solved one can crack open. The game counts tell you how much weight a row can bear.</li>
+        <li><strong>This is the popularity layer, on purpose.</strong> We are showing you what people build because we can measure it honestly. What people <em>should</em> build is a claim we won't make from raw win rates.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>What's next: from popularity to value.</strong> The obvious question this post doesn't answer is which build actually <em>wins</em>. The reason we don't rank by win rate is that item win rates are biased by the situation an item is bought in. We're building the fix: a debiased measure of how much an item changes your win probability, controlled for the game state when it was purchased, and filterable by matchup. When it ships, it will live where it belongs, on the pick, in champ select.</p>
+      </div>
+
+      <div class="callout">
+        <p>Want this read for your own game instead of a global table? The <a href="../scout.html">Champion Scout</a> reads the current pro meta by role, and the <a href="../index.html">Scrypick overlay</a> ranks your live champ-select options by matchup, synergy, and your own mastery, with a calibrated win chance on each pick.</p>
+      </div>
+
+      <p><a class="back" href="index.html">&larr; Back to the blog</a></p>
+    </div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="legal">
+      Scrypick isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games
+      or anyone officially involved in producing or managing Riot Games properties. Riot Games and all
+      associated properties are trademarks or registered trademarks of Riot Games, Inc.
+    </p>
+    <div class="footlinks">
+      <a href="../index.html">Home</a>
+      <a href="../scout.html">Champion Scout</a>
+      <a href="../privacy.html">Privacy policy</a>
+      <a href="mailto:contact@scrypick.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
