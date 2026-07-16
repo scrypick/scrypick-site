@@ -23,7 +23,7 @@
   --edge-2: #2e3c58;
   --ink: #e8edf6;
   --muted: #8b98ad;
-  --faint: #5a667c;
+  --faint: #7a8498;         /* de-emphasized text -- lifted to ~AA on --ground */
   --gold: #c8a24b;          /* single accent, brand */
   --gold-ink: #141004;      /* text ON gold */
   --gold-hi: #d6b25e;       /* accent hover */
@@ -41,7 +41,8 @@
   --mono: ui-monospace, "Cascadia Mono", SFMono-Regular, Menlo, Consolas, monospace;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
@@ -66,7 +67,17 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 .nav-links { display: flex; gap: 22px; }
 .nav-links a { color: var(--muted); font-size: 14px; }
 .nav-links a:hover { color: var(--ink); text-decoration: none; }
-@media (max-width: 680px) { .nav-links { display: none; } }
+.navmenu { display: none; }
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .navmenu { display: block; position: relative; }
+  .navmenu > summary { list-style: none; cursor: pointer; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--edge-2); border-radius: var(--r-chip); color: var(--ink); }
+  .navmenu > summary::-webkit-details-marker { display: none; }
+  .navmenu[open] > summary { border-color: var(--gold); color: var(--gold); }
+  .navmenu-panel { position: absolute; right: 0; top: calc(100% + 10px); min-width: 210px; display: grid; gap: 2px; padding: 8px; background: var(--panel); border: 1px solid var(--edge); border-radius: var(--r-panel); box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45); z-index: 20; }
+  .navmenu-panel a { color: var(--muted); font-size: 15px; padding: 10px 12px; border-radius: var(--r-chip); }
+  .navmenu-panel a:hover { color: var(--ink); background: var(--ground-2); text-decoration: none; }
+}
 
 /* ---- buttons (sharp, editorial) ---- */
 .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: var(--r-chip); padding: 12px 22px; font-weight: 600; font-size: 15px; border: 1px solid var(--edge-2); transition: transform .12s ease, background .2s ease, border-color .2s ease, color .2s ease; white-space: nowrap; }
